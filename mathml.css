@@ -77,10 +77,10 @@ mover > *:nth-child(2), munderover > *:nth-child(3) {
     order: -1;
 }
 munder {
-    vertical-align: bottom;
+    vertical-align: text-top;
 }
 mover {
-    vertical-align: top;
+    vertical-align: text-bottom;
 }
 munderover {
     vertical-align: middle;
@@ -181,11 +181,15 @@ ms[rquote]:after {
     font-family: monospace;
     font-style: normal;
 }
-[mathvariant="sans-serif"], [mathvariant="bold-sans-serif"],
+[mathvariant="sans-serif"],
 [mathvariant="bold-sans-serif"], [mathvariant="sans-serif-italic"],
 [mathvariant="sans-serif-bold-italic"] {
     font-family: sans-serif;
     font-style: normal;
+}
+[mathvariant="italic"], [mathvariant="bold-italic"],
+[mathvariant="sans-serif-italic"], [mathvariant="sans-serif-bold-italic"] {
+    font-style: italic;
 }
 [mathvariant="normal"] {
     font-style: normal;

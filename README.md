@@ -7,3 +7,7 @@ support, such as those based on Gecko or WebKit. You can do some UA string
 sniffing to decide when to load it, see
 
 https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#css-fallback
+
+You can see an [demo page](http://fred-wang.github.io/mathml.css/) that gives an
+overview of the basic constructions supported and show how more complex
+constructions render.
