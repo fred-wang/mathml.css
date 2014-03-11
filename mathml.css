@@ -110,22 +110,30 @@ menclose {
   border-collapse: separate;
   border-spacing: 0.4ex 0;
 }
-menclose[notation="top"] {
+menclose[notation*="top"], menclose[notation*="actuarial"] {
   border-top: solid thin;
 }
-menclose[notation="bottom"] {
+menclose[notation*="bottom"], menclose[notation*="madruwb"] {
     border-bottom: solid thin;
 }
-menclose[notation="right"] {
+menclose[notation*="right"], menclose[notation*="actuarial"],
+menclose[notation*="madruwb"] {
     border-right: solid thin;
 }
-menclose[notation="left"] {
+menclose[notation*="left"] {
     border-left: solid thin;
 }
-menclose[notation="box"] {
+menclose[notation*="box"], menclose[notation*="roundedbox"],
+menclose[notation*="circle"] {
     border: solid thin;
 }
-menclose[notation="horizontalstrike"] {
+menclose[notation*="roundedbox"] {
+    border-radius: 15%;
+}
+menclose[notation*="circle"] {
+    border-radius: 50%;
+}
+menclose[notation*="horizontalstrike"] {
     text-decoration: line-through;
 }
 
