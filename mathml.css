@@ -213,10 +213,10 @@ annotation, annotation-xml {
     font-family: monospace;
     display: none;
 }
-math:hover > semantics > *:first-child,
-math:hover > semantics > *:first-child {
+math:active > semantics > *:first-child,
+math:active > semantics > *:first-child {
     display: none;
 }
-math:hover annotation {
+math:active annotation:first-of-type {
     display: inline;
 }
