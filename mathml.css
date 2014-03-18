@@ -202,13 +202,16 @@ mphantom {
 
 /* merror */
 merror {
-  outline: solid thin red;
+    outline: solid thin red;
 }
 merror:before {
-  content: "Error: ";
+    content: "Error: ";
 }
 
 /* annotations */
+semantics > *:first-child {
+    display: inline;
+}
 annotation, annotation-xml {
     font-family: monospace;
     display: none;
