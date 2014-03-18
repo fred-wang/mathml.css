@@ -35,12 +35,12 @@ math[display="block"] {
 
 /* fraction */
 mfrac {
-    display: inline-table;
+    display: inline-table !important;
     vertical-align: middle;
     border-collapse: collapse;
 }
 mfrac > * {
-    display: table-row;
+    display: table-row !important;
 }
 mfrac:not([linethickness="0"]) > *:first-child {
     border-bottom: solid thin;
@@ -65,7 +65,7 @@ mprescripts:after {
 
 /* under/over scripts */
 munder, mover, munderover {
-    display: inline-flex;
+    display: inline-flex !important;
     flex-direction: column;
 }
 munder > *:nth-child(2), munderover > *:nth-child(2) {
@@ -88,7 +88,7 @@ munderover {
 
 /* roots */
 msqrt, mroot {
-    display: inline-flex;
+    display: inline-flex !important;
     margin-left: .5em;
     vertical-align: middle;
     border-top: solid thin;
@@ -106,7 +106,7 @@ mroot > *:nth-child(2) {
 
 /* menclose */
 menclose {
-  display: inline-table;
+  display: inline-table !important;
   border-collapse: separate;
   border-spacing: 0.4ex 0;
 }
@@ -139,14 +139,14 @@ menclose[notation*="horizontalstrike"] {
 
 /* table */
 mtable {
-    display: inline-table;
+    display: inline-table !important;
     vertical-align: middle;
 }
 mtr {
-    display: table-row;
+    display: table-row !important;
 }
 mtd {
-    display: table-cell;
+    display: table-cell !important;
     padding: 0 0.5ex;
 }
 
@@ -214,12 +214,12 @@ semantics > *:first-child {
 }
 annotation, annotation-xml {
     font-family: monospace;
-    display: none;
+    display: none !important;
 }
 math:active > semantics > *:first-child,
 math:active > semantics > *:first-child {
-    display: none;
+    display: none !important;
 }
 math:active annotation:first-of-type {
-    display: inline;
+    display: inline !important;
 }
