@@ -17,8 +17,8 @@
 
   This stylesheet must not be loaded in browsers that have MathML support or
   it will mess up the native rendering. You can load this mathml.css file
-  conditionally by doing some UA string sniffing:
-  https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#noMathML
+  conditionally via Javascript, see
+  https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#css-fallback
 */
    
 @namespace "http://www.w3.org/1998/Math/MathML";
