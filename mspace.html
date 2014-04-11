@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+  <head>
+    <title>mathml.css</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+      function hasMathMLSupport() {
+        var div = document.createElement("div"), box;
+        div.innerHTML = "<math><mspace height='23px' width='77px'/></math>";
+        document.body.appendChild(div);
+        box = div.firstChild.firstChild.getBoundingClientRect();
+        document.body.removeChild(div);
+        return Math.abs(box.height - 23) <= 1  && Math.abs(box.width - 77) <= 1;
+      }
+      window.onload = function() {
+        if (!hasMathMLSupport()) {
+          var s = document.createElement("link");
+          s.href = "mathml.css";
+          s.rel = "stylesheet";
+          document.head.appendChild(s);
+        }
+      }
+    </script>
+  </head>
+  <body>
+
+    <h1>mathml.css</h1>
+
+    <h2>Basic Examples</h2>
+
+    <p>Inline equation: <math><mi>x</mi></math></p>
+
+    <p>Display equation: <math display="block"><mi>x</mi></math></p>
+
+    <p>Fraction: <math><mfrac><mi>x</mi><mn>2</mn></mfrac></math></p>
+
+    <p>Binom:
+      <math>
+        <mo>(</mo>
+        <mfrac linethickness="0"><mi>n</mi><mi>k</mi></mfrac>
+        <mo>)</mo>
+      </math>
+    </p>
+
+    <p>Subcript and Superscripts:
+      <math>
+        <msub><mi>x</mi><mn>2</mn></msub>
+        <mo>+</mo>
+        <msup><mi>y</mi><mn>3</mn></msup>
+        <mo>+</mo>
+        <msubsup><mi>a</mi><mn>1</mn><mn>2</mn></msubsup>
+      </math>
+    </p>
+
+    <p>Multiscripts:
+      <math>
+        <mmultiscripts>
+          <mtext>BASE</mtext>
+          <mn>1</mn>
+          <mn>2</mn>
+          <mn>3</mn>
+          <mn>4</mn>
+          <mprescripts/>
+          <mn>5</mn>
+          <mn>6</mn>
+          <mn>7</mn>
+          <mn>8</mn>
+        </mmultiscripts>
+      </math>
+    </p>
+
+    <p>Underscripts and Overscripts:
+      <math>
+        <munder><mi>x</mi><mn>2</mn></munder>
+        <mo>+</mo>
+        <mover><mi>y</mi><mn>3</mn></mover>
+        <mo>+</mo>
+        <munderover><mi>a</mi><mn>1</mn><mn>2</mn></munderover>
+      </math>
+    </p>
+
+    <p>Roots:
+      <math>
+        <msqrt><mi>x</mi></msqrt>
+        <mo>+</mo>
+        <mroot><mi>x</mi><mn>3</mn></mroot>
+      </math>
+    </p>
+
+    <p>menclose element:
+      <math>
+        <menclose notation="top"><mtext>top</mtext></menclose>
+        <menclose notation="bottom"><mtext>bottom</mtext></menclose>
+        <menclose notation="left"><mtext>left</mtext></menclose>
+        <menclose notation="right"><mtext>right</mtext></menclose>
+        <menclose notation="madruwb"><mtext>madruwb</mtext></menclose>
+        <menclose notation="actuarial"><mtext>actuarial</mtext></menclose>
+        <menclose notation="box"><mtext>box</mtext></menclose>
+        <menclose notation="roundedbox"><mtext>roundedbox</mtext></menclose>
+        <menclose notation="circle"><mtext>circle</mtext></menclose>
+        <menclose notation="horizontalstrike">
+          <mtext>horizontalstrike</mtext>
+        </menclose>
+        <menclose notation="top left horizontalstrike">
+          <mtext>top left horizontalstrike</mtext>
+        </menclose>
+      </math>
+    </p>
+
+    <p>table:
+      <math>
+        <mrow>
+          <mo>|</mo>
+          <mtable>
+            <mtr>
+              <mtd><mn>1</mn></mtd>
+              <mtd><mn>2</mn></mtd>
+              <mtd><mn>3</mn></mtd>
+            </mtr>
+            <mtr>
+              <mtd><mn>4</mn></mtd>
+              <mtd><mn>5</mn></mtd>
+              <mtd><mn>6</mn></mtd>
+            </mtr>
+            <mtr>
+              <mtd><mn>7</mn></mtd>
+              <mtd><mn>8</mn></mtd>
+              <mtd><mn>9</mn></mtd>
+            </mtr>
+          </mtable>
+          <mo>|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mn>0</mn>
+      </math>
+    </p>
+
+
+    <p>Token elements:
+      <math>
+        <mi>x</mi><mspace/><mtext>such that</mtext><mspace/><mi>x</mi>
+        <mo>&leq;</mo><mn>10</mn>
+      </math> ;
+      <math><ms>x</ms></math> ;
+      <math><ms lquote="[" rquote=")">x</ms></math>
+    </p>
+
+    <p>mathvariants:
+      <math>
+        <mi mathvariant="normal">normal</mi>
+        <mtext mathvariant="bold">bold</mtext>
+        <mtext mathvariant="italic">italic</mtext>
+        <mtext mathvariant="bold-italic">bold-italic</mtext>
+        <mtext mathvariant="sans-serif">sans-serif</mtext>
+        <mtext mathvariant="monospace">monospace</mtext>
+        <mtext mathvariant="bold-italic">bold-italic</mtext>
+        <mtext mathvariant="bold-sans-serif">bold-sans-serif</mtext>
+        <mtext mathvariant="sans-serif-italic">sans-serif-italic</mtext>
+        <mtext mathvariant="sans-serif-bold-italic">sans-serif-bold-italic</mtext>
+      </math>
+    </p>
+
+    <p>phantom element:
+      <math>
+        <mi>x</mi><mo>+</mo><mphantom><mtext>phantom</mtext></mphantom>
+        <mi>y</mi>
+      </math>
+    </p>
+    
+    <p>merror element:
+      <math>
+        <merror><mtext>missing argument</mtext></merror>
+      </math>
+    </p>
+
+    <p>
+      annotation:
+      <math>
+        <semantics>
+          <mfrac><mi>x</mi><mi>y</mi></mfrac>
+          <annotation>\frac{x}{y}</annotation>
+        </semantics>
+      </math>
+    </p>
+
+    <h2>More complex examples</h2>
+    
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><msup><mi>a</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><msup><mi>y</mi><mn>2</mn></msup><msup><mi>b</mi><mn>2</mn></msup></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</annotation></semantics></math>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mrow><mo>+</mo><mn>∞</mn></mrow></munderover><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><mo>=</mo><mfrac><msup><mi>π</mi><mn>2</mn></msup><mn>6</mn></mfrac></mrow><annotation encoding="TeX">\sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}</annotation></semantics></math>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mo>-</mo><mi>b</mi><mo>±</mo><msqrt><mrow><msup><mi>b</mi><mn>2</mn></msup><mo>-</mo><mn>4</mn><mi>a</mi><mi>c</mi></mrow></msqrt></mrow><mrow><mn>2</mn><mi>a</mi></mrow></mfrac></mrow><annotation encoding="TeX">x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mo>-</mo><mn>∞</mn></mrow><mn>∞</mn></munderover><msub><mi>c</mi><mi>n</mi></msub><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mo stretchy="false">(</mo><mi>n</mi><mo>/</mo><mi>T</mi><mo stretchy="false">)</mo><mi>x</mi></mrow></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mo>-</mo><mn>∞</mn></mrow><mn>∞</mn></munderover><mover><mi>f</mi><mo stretchy="false">^</mo></mover><mo stretchy="false">(</mo><msub><mi>ξ</mi><mi>n</mi></msub><mo stretchy="false">)</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><msub><mi>ξ</mi><mi>n</mi></msub><mi>x</mi></mrow></msup><mi>Δ</mi><mi>ξ</mi></mrow><annotation encoding="TeX">f(x)=\sum_{n=-\infty}^\infty c_n e^{2\pi i(n/T) x} =\sum_{n=-\infty}^\infty \hat{f}(\xi_n) e^{2\pi i\xi_n x}\Delta\xi</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Γ</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo lspace="0em" rspace="0em">lim</mo><mrow><mi>n</mi><mo stretchy="false">→</mo><mn>∞</mn></mrow></munder><mfrac><mrow><mi>n</mi><mo>!</mo><mspace width="thickmathspace"/><msup><mi>n</mi><mi>t</mi></msup></mrow><mrow><mi>t</mi><mspace width="thickmathspace"/><mo stretchy="false">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>⋯</mo><mo stretchy="false">(</mo><mi>t</mi><mo>+</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>t</mi></mfrac><munderover><mo>∏</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mn>∞</mn></munderover><mfrac><msup><mrow><mo>(</mo><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac></mrow><mo>)</mo></mrow><mi>t</mi></msup><mrow><mn>1</mn><mo>+</mo><mfrac><mi>t</mi><mi>n</mi></mfrac></mrow></mfrac><mo>=</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mi>γ</mi><mi>t</mi></mrow></msup><mi>t</mi></mfrac><munderover><mo>∏</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mn>∞</mn></munderover><msup><mrow><mo>(</mo><mrow><mn>1</mn><mo>+</mo><mfrac><mi>t</mi><mi>n</mi></mfrac></mrow><mo>)</mo></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup><msup><mi>e</mi><mfrac><mi>t</mi><mi>n</mi></mfrac></msup></mrow><annotation encoding="TeX">\Gamma(t) = \lim_{n \to \infty} \frac{n! \; n^t}{t \; (t+1)\cdots(t+n)}= \frac{1}{t} \prod_{n=1}^\infty \frac{\left(1+\frac{1}{n}\right)^t}{1+\frac{t}{n}} = \frac{e^{-\gamma t}}{t} \prod_{n=1}^\infty \left(1 + \frac{t}{n}\right)^{-1} e^{\frac{t}{n}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle mathvariant="fraktur"><mrow><mi>s</mi><mi>l</mi></mrow></mstyle><mo stretchy="false">(</mo><mi>n</mi><mo>,</mo><mi>𝔽</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo>{</mo><mrow><mi>A</mi><mo>∊</mo><msub><mi>ℳ</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mi>𝔽</mi><mo stretchy="false">)</mo><mo>:</mo><mo lspace="0em" rspace="thinmathspace">Tr</mo><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><mo>}</mo></mrow></mrow><annotation encoding="TeX">\mathfrak{sl}(n, \mathbb{F}) = \left\{ A \in \mathscr{M}_n(\mathbb{F}) : \operatorname{Tr}(A) = 0 \right\}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="TeX">x^2 y^2</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mmultiscripts><mi>F</mi><mn>3</mn><none/><mprescripts/><mn>2</mn><none/></mmultiscripts><annotation encoding="TeX">\multiscripts{_2}{F}{_3}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mfrac><mrow><mi>x</mi><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac><annotation encoding="TeX">\frac{x+y^2}{k+1}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>+</mo><msup><mi>y</mi><mfrac><mn>2</mn><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></msup></mrow><annotation encoding="TeX">x+y^{\frac 2 {k+1}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mfrac><mi>a</mi><mrow><mi>b</mi><mo>/</mo><mn>2</mn></mrow></mfrac><annotation encoding="TeX">\frac{a}{b/2}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mstyle displaystyle="true"><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><mfrac><mn>1</mn><mstyle displaystyle="true"><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><mfrac><mn>1</mn><mstyle displaystyle="true"><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><mfrac><mn>1</mn><mstyle displaystyle="true"><msub><mi>a</mi><mn>3</mn></msub><mo>+</mo><mfrac><mn>1</mn><mstyle displaystyle="true"><msub><mi>a</mi><mn>4</mn></msub></mstyle></mfrac></mstyle></mfrac></mstyle></mfrac></mstyle></mfrac></mstyle><annotation encoding="TeX">\displaystyle a_0 + \frac{1}{\displaystyle a_1+\frac{1}{\displaystyle a_2+\frac{1}{\displaystyle a_3+\frac{1}{\displaystyle a_4}}}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>k</mi><mo>/</mo><mn>2</mn></mrow></mfrac><mo>)</mo></mrow><annotation encoding="TeX">\binom{n}{k/2}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo>(</mo><mfrac linethickness="0"><mi>p</mi><mn>2</mn></mfrac><mo>)</mo></mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mrow><mi>p</mi><mo>-</mo><mn>2</mn></mrow></msup><mo>-</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><mi>x</mi></mrow></mfrac><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="TeX">\binom{p}{2} x^2 y^{p-2} - \frac{1}{1-x} \frac{1}{1-x^2}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munder><mo>∑</mo><mtable columnalign="center" rowspacing="0.5ex"><mtr><mtd><mn>0</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>m</mi></mtd></mtr><mtr><mtd><mn>0</mn><mo>&lt;</mo><mi>j</mi><mo>&lt;</mo><mi>n</mi></mtd></mtr></mtable></munder><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="TeX">\sum_{\substack{
+   0 \le i \le m \\
+   0 &lt; j &lt; n
+  }} {P(i,j)}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msup><mi>x</mi><mrow><mn>2</mn><mi>y</mi></mrow></msup><annotation encoding="TeX">x^{2y}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>p</mi></munderover><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>q</mi></munderover><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>r</mi></munderover><mrow><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>b</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub><msub><mi>c</mi><mrow><mi>k</mi><mi>i</mi></mrow></msub></mrow></mrow><annotation encoding="TeX">\sum_{i=1}^p \sum_{j=1}^q \sum_{k=1}^r {a_{i j} b_{j k} c_{k i}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>x</mi></mrow></msqrt></mrow></msqrt></mrow></msqrt></mrow></msqrt></mrow></msqrt></mrow></msqrt></mrow></msqrt><annotation encoding="TeX">\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+x}}}}}}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo>(</mo><mrow><mfrac><msup><mo>∂</mo><mn>2</mn></msup><mrow><mo>∂</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><msup><mo>∂</mo><mn>2</mn></msup><mrow><mo>∂</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></mfrac></mrow><mo>)</mo></mrow><msup><mrow><mo stretchy="false">|</mo><mi>φ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>+</mo><mi>i</mi><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">|</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="TeX">\left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) {| \varphi(x+ i y)|}^2 = 0</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msup><mn>2</mn><msup><mn>2</mn><msup><mn>2</mn><mi>x</mi></msup></msup></msup><annotation encoding="TeX">2^{2^{2^x}}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mi>x</mi></msubsup><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mi>t</mi></mfrac></mrow><annotation encoding="TeX">\int_1^x \frac{dt}{t}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mo>∬</mo><mi>D</mi></msub><mrow><mi>d</mi><mi>x</mi><mi>d</mi><mi>y</mi></mrow></mrow><annotation encoding="TeX">\iint_D {dx dy}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left left"><mtr><mtd><mn>1</mn><mo>/</mo><mn>3</mn></mtd><mtd><mtext>if</mtext><mspace width="1em"/><mn>0</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>1</mn><mo>;</mo></mtd></mtr><mtr><mtd><mn>2</mn><mo>/</mo><mn>3</mn></mtd><mtd><mtext>if</mtext><mspace width="1em"/><mn>3</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>4</mn><mo>;</mo></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mtext>elsewhere</mtext><mo>.</mo></mtd></mtr></mtable></mrow></mrow><annotation encoding="TeX">f(x) =
+\begin{cases}
+1/3 &amp; \text{if} \quad 0 \leq x \leq 1; \\
+2/3 &amp; \text{if} \quad 3 \leq x \leq 4; \\
+0 &amp; \text{elsewhere}.
+\end{cases}
+</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msub><mi>y</mi><msup><mi>x</mi><mn>2</mn></msup></msub><annotation encoding="TeX">y_{x^2}</annotation></semantics></math>
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>(</mo><mtable rowspacing="0.5ex"><mtr><mtd><mrow><mo>(</mo><mtable rowspacing="0.5ex"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>)</mo></mrow></mtd><mtd><mrow><mo>(</mo><mtable rowspacing="0.5ex"><mtr><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd></mtr><mtr><mtd><mi>g</mi></mtd><mtd><mi>h</mi></mtd></mtr></mtable><mo>)</mo></mrow></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mrow><mo>(</mo><mtable rowspacing="0.5ex"><mtr><mtd><mi>i</mi></mtd><mtd><mi>j</mi></mtd></mtr><mtr><mtd><mi>k</mi></mtd><mtd><mi>l</mi></mtd></mtr></mtable><mo>)</mo></mrow></mtd></mtr></mtable><mo>)</mo></mrow><annotation encoding="TeX">\begin{pmatrix}
+\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} &amp; 
+\begin{pmatrix} e &amp; f \\ g &amp; h \end{pmatrix} \\
+0 &amp;
+\begin{pmatrix} i &amp; j \\ k &amp; l \end{pmatrix}
+\end{pmatrix}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo lspace="0em" rspace="0em">det</mo><mrow><mo>|</mo><mtable rowspacing="0.5ex"><mtr><mtd><msub><mi>c</mi><mn>0</mn></msub></mtd><mtd><msub><mi>c</mi><mn>1</mn></msub></mtd><mtd><msub><mi>c</mi><mn>2</mn></msub></mtd><mtd><mo>…</mo></mtd><mtd><msub><mi>c</mi><mi>n</mi></msub></mtd></mtr><mtr><mtd><msub><mi>c</mi><mn>1</mn></msub></mtd><mtd><msub><mi>c</mi><mn>2</mn></msub></mtd><mtd><msub><mi>c</mi><mn>3</mn></msub></mtd><mtd><mo>…</mo></mtd><mtd><msub><mi>c</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd><msub><mi>c</mi><mn>2</mn></msub></mtd><mtd><msub><mi>c</mi><mn>3</mn></msub></mtd><mtd><msub><mi>c</mi><mn>4</mn></msub></mtd><mtd><mo>…</mo></mtd><mtd><msub><mi>c</mi><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow></msub></mtd></mtr><mtr><mtd><mo>⋮</mo></mtd><mtd><mo>⋮</mo></mtd><mtd><mo>⋮</mo></mtd><mtd/><mtd><mo>⋮</mo></mtd></mtr><mtr><mtd><msub><mi>c</mi><mi>n</mi></msub></mtd><mtd><msub><mi>c</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mtd><mtd><msub><mi>c</mi><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow></msub></mtd><mtd><mo>…</mo></mtd><mtd><msub><mi>c</mi><mrow><mn>2</mn><mi>n</mi></mrow></msub></mtd></mtr></mtable><mo>|</mo></mrow><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="TeX">\det
+\begin{vmatrix} 
+c_0 &amp; c_1 &amp; c_2 &amp; \dots &amp; c_n \\
+c_1 &amp; c_2 &amp; c_3 &amp; \dots &amp; c_{n+1} \\
+c_2 &amp; c_3 &amp; c_4 &amp; \dots &amp; c_{n+2} \\
+\vdots &amp; \vdots &amp; \vdots &amp;  &amp; \vdots \\
+c_n &amp; c_{n+1} &amp; c_{n+2} &amp; \dots &amp; c_{2n}
+\end{vmatrix}
+ &gt; 0</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msub><mi>y</mi><msub><mi>x</mi><mn>2</mn></msub></msub><annotation encoding="TeX">y_{x_2}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>x</mi><mn>92</mn><mn>31415</mn></msubsup><mo>+</mo><mi>π</mi></mrow><annotation encoding="TeX">x^31415_92 + \pi</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msubsup><mi>x</mi><msubsup><mi>y</mi><mi>b</mi><mi>a</mi></msubsup><msubsup><mi>z</mi><mi>c</mi><mi>d</mi></msubsup></msubsup><annotation encoding="TeX">x^{z^d_c}_{y_b^a}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><msubsup><mi>y</mi><mn>3</mn><mo>‴</mo></msubsup><annotation encoding="TeX">y_3'''</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mover><mi>x</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><mi>y</mi><mo>-</mo><mi>x</mi><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd><mover><mi>y</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mi>ρ</mi><mi>x</mi><mo>-</mo><mi>y</mi><mo>-</mo><mi>x</mi><mi>z</mi></mtd></mtr><mtr><mtd><mover><mi>z</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mo>-</mo><mi>β</mi><mi>z</mi><mo>+</mo><mi>x</mi><mi>y</mi></mtd></mtr></mtable><annotation encoding="TeX">\begin{aligned}
+\dot{x} &amp; = \sigma(y-x) \\
+\dot{y} &amp; = \rho x - y - xz \\
+\dot{z} &amp; = -\beta z + xy
+\end{aligned}</annotation></semantics></math>
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mover><mi>x</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><mi>y</mi><mo>-</mo><mi>x</mi><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd><mover><mi>y</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mi>ρ</mi><mi>x</mi><mo>-</mo><mi>y</mi><mo>-</mo><mi>x</mi><mi>z</mi></mtd></mtr><mtr><mtd><mover><mi>z</mi><mo>˙</mo></mover></mtd><mtd><mo>=</mo><mo>-</mo><mi>β</mi><mi>z</mi><mo>+</mo><mi>x</mi><mi>y</mi></mtd></mtr></mtable><annotation encoding="TeX">\begin{aligned}
+\dot{x} &amp; = \sigma(y-x) \\
+\dot{y} &amp; = \rho x - y - xz \\
+\dot{z} &amp; = -\beta z + xy
+\end{aligned}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>𝐕</mi><mn>1</mn></msub><mo>×</mo><msub><mi>𝐕</mi><mn>2</mn></msub><mo>=</mo><mrow><mo>|</mo><mtable rowspacing="0.5ex"><mtr><mtd><mi>𝐢</mi></mtd><mtd><mi>𝐣</mi></mtd><mtd><mi>𝐤</mi></mtd></mtr><mtr><mtd><mfrac><mrow><mo>∂</mo><mi>X</mi></mrow><mrow><mo>∂</mo><mi>u</mi></mrow></mfrac></mtd><mtd><mfrac><mrow><mo>∂</mo><mi>Y</mi></mrow><mrow><mo>∂</mo><mi>u</mi></mrow></mfrac></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mfrac><mrow><mo>∂</mo><mi>X</mi></mrow><mrow><mo>∂</mo><mi>v</mi></mrow></mfrac></mtd><mtd><mfrac><mrow><mo>∂</mo><mi>Y</mi></mrow><mrow><mo>∂</mo><mi>v</mi></mrow></mfrac></mtd><mtd><mn>0</mn></mtd></mtr></mtable><mo>|</mo></mrow></mrow><annotation encoding="TeX">\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
+\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
+\end{vmatrix}</annotation></semantics></math>
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow><msup><mi>p</mi><mi>k</mi></msup><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><mi>p</mi><msup><mo stretchy="false">)</mo><mrow><mi>n</mi><mo>-</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="TeX">P(E)   = {n \choose k} p^k (1-p)^{ n-k}</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>1</mn><mrow><mo maxsize="1.8em" minsize="1.8em">(</mo><msqrt><mrow><mi>ϕ</mi><msqrt><mn>5</mn></msqrt></mrow></msqrt><mo>-</mo><mi>ϕ</mi><mo maxsize="1.8em" minsize="1.8em">)</mo><msup><mi>e</mi><mfrac><mn>25</mn><mi>π</mi></mfrac></msup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mn>2</mn><mi>π</mi></mrow></msup><mrow><mn>1</mn><mo>+</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mn>4</mn><mi>π</mi></mrow></msup><mrow><mn>1</mn><mo>+</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mn>6</mn><mi>π</mi></mrow></msup><mrow><mn>1</mn><mo>+</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mn>8</mn><mi>π</mi></mrow></msup><mrow><mn>1</mn><mo>+</mo><mo>…</mo></mrow></mfrac></mrow></mfrac></mrow></mfrac></mrow></mfrac></mrow><annotation encoding="TeX">\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
+1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}} {1+\ldots} } } }</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn><mo>+</mo><mfrac><msup><mi>q</mi><mn>2</mn></msup><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><mi>q</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>+</mo><mfrac><msup><mi>q</mi><mn>6</mn></msup><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><mi>q</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><msup><mi>q</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>=</mo><munderover><mo>∏</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mn>∞</mn></munderover><mfrac><mn>1</mn><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><msup><mi>q</mi><mrow><mn>5</mn><mi>j</mi><mo>+</mo><mn>2</mn></mrow></msup><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><msup><mi>q</mi><mrow><mn>5</mn><mi>j</mi><mo>+</mo><mn>3</mn></mrow></msup><mo stretchy="false">)</mo></mrow></mfrac><mo>,</mo><mspace width="1em"/><mspace width="1em"/><mtext>for</mtext><mspace width="1em"/><mo stretchy="false">|</mo><mi>q</mi><mo stretchy="false">|</mo><mo>&lt;</mo><mn>1</mn><mo>.</mo></mrow><annotation encoding="TeX">1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
+\prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})},
+\quad\quad \text{for} \quad |q| &lt; 1.</annotation></semantics></math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mo>∇</mo><mo>×</mo><mover><mi>𝐁</mi><mo stretchy="false">⇀</mo></mover><mo>-</mo><mspace width="thinmathspace"/><mfrac><mn>1</mn><mi>c</mi></mfrac><mspace width="thinmathspace"/><mfrac><mrow><mo>∂</mo><mover><mi>𝐄</mi><mo stretchy="false">⇀</mo></mover></mrow><mrow><mo>∂</mo><mi>t</mi></mrow></mfrac></mtd><mtd><mo>=</mo><mfrac><mrow><mn>4</mn><mi>π</mi></mrow><mi>c</mi></mfrac><mover><mi>𝐣</mi><mo stretchy="false">⇀</mo></mover></mtd></mtr><mtr><mtd><mo>∇</mo><mo>⋅</mo><mover><mi>𝐄</mi><mo stretchy="false">⇀</mo></mover></mtd><mtd><mo>=</mo><mn>4</mn><mi>π</mi><mi>ρ</mi></mtd></mtr><mtr><mtd><mo>∇</mo><mo>×</mo><mover><mi>𝐄</mi><mo stretchy="false">⇀</mo></mover><mspace width="thinmathspace"/><mo>+</mo><mspace width="thinmathspace"/><mfrac><mn>1</mn><mi>c</mi></mfrac><mspace width="thinmathspace"/><mfrac><mrow><mo>∂</mo><mover><mi>𝐁</mi><mo stretchy="false">⇀</mo></mover></mrow><mrow><mo>∂</mo><mi>t</mi></mrow></mfrac></mtd><mtd><mo>=</mo><mover><mstyle mathvariant="bold"><mn>0</mn></mstyle><mo stretchy="false">⇀</mo></mover></mtd></mtr><mtr><mtd><mo>∇</mo><mo>⋅</mo><mover><mi>𝐁</mi><mo stretchy="false">⇀</mo></mover></mtd><mtd><mo>=</mo><mn>0</mn></mtd></mtr></mtable><annotation encoding="TeX">\begin{aligned}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} &amp; = 0 \end{aligned}</annotation></semantics></math>
+
+  </body>
+</html>
