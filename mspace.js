@@ -7,7 +7,7 @@
 
 (function () {
     window.addEventListener("load", function () {
-        // Insert the mathml.css stylesheet if the <mspace> is not supported.
+        // Insert mathml.css if the <mspace> element is not supported.
         var box, div, link;
         div = document.createElement("div");
         div.innerHTML = "<math><mspace height='23px' width='77px'/></math>";
