@@ -10,7 +10,7 @@
         // Insert mathml.css if the <mspace> element is not supported.
         var box, div, link;
         div = document.createElement("div");
-        div.innerHTML = "<math><mspace height='23px' width='77px'/></math>";
+        div.innerHTML = "<math xmlns='http://www.w3.org/1998/Math/MathML'><mspace height='23px' width='77px'/></math>";
         document.body.appendChild(div);
         box = div.firstChild.firstChild.getBoundingClientRect();
         document.body.removeChild(div);
