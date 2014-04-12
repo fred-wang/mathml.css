@@ -7,18 +7,23 @@
 
 (function () {
     window.addEventListener("load", function () {
-        // Insert mathml.css if the <mspace> element is not supported.
-        var box, div, link;
-        div = document.createElement("div");
-        div.innerHTML = "<math xmlns='http://www.w3.org/1998/Math/MathML'><mspace height='23px' width='77px'/></math>";
-        document.body.appendChild(div);
-        box = div.firstChild.firstChild.getBoundingClientRect();
-        document.body.removeChild(div);
-        if (Math.abs(box.height - 23) > 1  || Math.abs(box.width - 77) > 1) {
-            link = document.createElement("link");
-            link.href = "http://fred-wang.github.io/mathml.css/mathml.css";
-            link.rel = "stylesheet";
-            document.head.appendChild(link);
+        var box, div, link, namespaceURI;
+        // First check whether the page contains any <math> element.
+        namespaceURI = "http://www.w3.org/1998/Math/MathML";
+        if (document.body.getElementsByTagNameNS(namespaceURI, "math")) {
+            // Verify the support for the <mspace> element.
+            div = document.createElement("div");
+            div.innerHTML = "<math xmlns='" + namespaceURI + "'><mspace height='23px' width='77px'/></math>";
+            document.body.appendChild(div);
+            box = div.firstChild.firstChild.getBoundingClientRect();
+            document.body.removeChild(div);
+            if (Math.abs(box.height - 23) > 1  || Math.abs(box.width - 77) > 1) {
+                // Insert the MathJax.js script.
+                link = document.createElement("link");
+                link.href = "http://fred-wang.github.io/mathml.css/mathml.css";
+                link.rel = "stylesheet";
+                document.head.appendChild(link);
+            }
         }
     });
 }());
