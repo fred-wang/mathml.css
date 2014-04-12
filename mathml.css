@@ -2,24 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-/*
-  https://github.com/fred-wang/mathml.css
-
-  This CSS stylesheet is a simplified version of the "MathML for CSS Profile"
-  (http://www.w3.org/TR/mathml-for-css/) without CSS table rules that had only
-  been implemented in Presto and using new CSS3 selectors and flexboxes.
-
-  We know from Opera's experience that relying exclusively on a fixed set of
-  CSS rules to do math layout is not reasonable. This stylesheet is only
-  intended to provide some fallback to browsers without MathML support in order
-  to make basic mathematical constructions readable, without claim of rendering
-  quality.
-
-  This stylesheet must not be loaded in browsers that have MathML support or
-  it will mess up the native rendering. You can load this mathml.css file
-  conditionally via Javascript, see
-  https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#css-fallback
-*/
+/* See https://github.com/fred-wang/mathml.css */
    
 @namespace "http://www.w3.org/1998/Math/MathML";
 

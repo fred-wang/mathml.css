@@ -1,13 +1,34 @@
 mathml.css
 ==========
 
-This is a CSS stylesheet to provide some fallback rendering to browsers without
-MathML support. It *must not* be loaded in browsers that have native MathML
-support, such as those based on Gecko or WebKit. You can do some UA string
-sniffing to decide when to load it, see
+This [mathml.css](http://fred-wang.github.io/mathml.css/mathml.css) stylesheet
+is a simplified version of the
+[MathML for CSS Profile](http://www.w3.org/TR/mathml-for-css/)
+without CSS table rules that had only
+been implemented in Presto and using new CSS3 selectors and flexboxes.
+We know from Opera's experience that relying exclusively on a fixed set of
+CSS rules to do math layout is not reasonable. This stylesheet is only
+intended to provide some fallback to browsers without MathML support in order
+to make basic mathematical constructions readable, without claim of rendering
+quality.
 
-https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#css-fallback
+*This stylesheet must not be loaded in browsers that have MathML support* or
+it will mess up the native rendering. You must instead load the `mathml.css`
+file conditionally via Javascript using some
+[browser sniffing or feature detection](https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#Fallback_for_Browsers_without_MathML_support)
+The easiest way is to insert the
+[mspace.js](http://fred-wang.github.io/mathml.css/mspace.js)
+script in your document header:
 
-You can see an [demo page](http://fred-wang.github.io/mathml.css/) that gives an
-overview of the basic constructions supported and show how more complex
-constructions render.
+    <html>
+      <head>
+        ...
+        <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+        ...
+      </head>
+      ...
+    </html>
+
+You can see a [demo page](http://fred-wang.github.io/mathml.css/) that gives an
+overview of the basic constructions supported and show the limitations in more
+complex cases.
