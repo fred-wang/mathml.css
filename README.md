@@ -10,9 +10,10 @@ We know from Opera's experience that relying exclusively on a fixed set of
 CSS rules to do math layout is not reasonable. This stylesheet is only
 intended to provide some fallback to browsers without MathML support in order
 to make basic mathematical constructions readable, without claim of rendering
-quality.
+quality. For heavier polyfill with better MathML support see
+[mathjax.js](https://github.com/fred-wang/mathjax.js).
 
-*This stylesheet must not be loaded in browsers that have MathML support* or
+**This stylesheet must not be loaded in browsers that have MathML support** or
 it will mess up the native rendering. You must instead load the `mathml.css`
 file conditionally via Javascript using some
 [browser sniffing or feature detection](https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#Fallback_for_Browsers_without_MathML_support)
