@@ -10,7 +10,7 @@
         var box, div, link, namespaceURI;
         // First check whether the page contains any <math> element.
         namespaceURI = "http://www.w3.org/1998/Math/MathML";
-        if (document.body.getElementsByTagNameNS(namespaceURI, "math")) {
+        if (document.body.getElementsByTagNameNS(namespaceURI, "math").length) {
             // Create a div to store the test, using Kuma's "offscreen" CSS
             div = document.createElement("div");
             div.style.border = "0";
