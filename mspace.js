@@ -11,19 +11,9 @@
         // First check whether the page contains any <math> element.
         namespaceURI = "http://www.w3.org/1998/Math/MathML";
         if (document.body.getElementsByTagNameNS(namespaceURI, "math").length) {
-            // Create a div to store the test, using Kuma's "offscreen" CSS
-            div = document.createElement("div");
-            div.style.border = "0";
-            div.style.clip = "rect(0 0 0 0)"
-            div.style.height = "1px";
-            div.style.margin = "-1px";
-            div.style.overflow = "hidden";
-            div.style.padding = "0";
-            div.style.position = "absolute";
-            div.style.width = "1px";
-            // Verify the support for the <mspace> element.
-            div.innerHTML = "<math xmlns='" + namespaceURI + "'><mspace height='23px' width='77px'/></math>";
-            document.body.appendChild(div);
+            // Create a div to test mspace, using Kuma's "offscreen" CSS
+            document.body.insertAdjacentHTML("afterbegin", "<div style='border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;'><math xmlns='" + namespaceURI + "'><mspace height='23px' width='77px'></mspace></math></div>");
+            div = document.body.firstChild;
             box = div.firstChild.firstChild.getBoundingClientRect();
             document.body.removeChild(div);
             if (Math.abs(box.height - 23) > 1  || Math.abs(box.width - 77) > 1) {
