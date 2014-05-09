@@ -10,7 +10,7 @@
         var box, div, link, namespaceURI;
         // First check whether the page contains any <math> element.
         namespaceURI = "http://www.w3.org/1998/Math/MathML";
-        if (document.body.getElementsByTagNameNS(namespaceURI, "math").length) {
+        if (document.body.getElementsByTagNameNS(namespaceURI, "math")[0]) {
             // Create a div to test mspace, using Kuma's "offscreen" CSS
             document.body.insertAdjacentHTML("afterbegin", "<div style='border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;'><math xmlns='" + namespaceURI + "'><mspace height='23px' width='77px'></mspace></math></div>");
             div = document.body.firstChild;
