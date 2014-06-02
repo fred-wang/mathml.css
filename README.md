@@ -12,6 +12,7 @@ intended to provide some fallback to browsers without MathML support in order
 to make basic mathematical constructions readable, without claim of rendering
 quality. For heavier polyfill with better MathML support see
 [mathjax.js](https://github.com/fred-wang/mathjax.js).
+You might also consider the [mathml-warning](https://github.com/fred-wang/mathml-warning.js) script, which displays a warning message and let the user choose one of the MathML polyfill.
 
 **This stylesheet must not be loaded in browsers that have MathML support** or
 it will mess up the native rendering. You must instead load the `mathml.css`
