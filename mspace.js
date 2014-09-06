@@ -3,9 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*jslint browser: true*/
 
-"use strict";
-
 (function () {
+    "use strict";
     window.addEventListener("load", function () {
         var box, div, link, namespaceURI;
         // First check whether the page contains any <math> element.
@@ -17,7 +16,7 @@
             box = div.firstChild.firstChild.getBoundingClientRect();
             document.body.removeChild(div);
             if (Math.abs(box.height - 23) > 1  || Math.abs(box.width - 77) > 1) {
-                // Insert the MathJax.js script.
+                // Insert the mathml.css stylesheet.
                 link = document.createElement("link");
                 link.href = "http://fred-wang.github.io/mathml.css/mathml.css";
                 link.rel = "stylesheet";
