@@ -18,12 +18,16 @@ math[display="block"] {
 
 /* fraction */
 mfrac {
-    display: inline-table !important;
-    vertical-align: middle;
+    display: inline-block !important;
+    vertical-align: -50%;
     border-collapse: collapse;
 }
 mfrac > * {
-    display: table-row !important;
+    display: block !important;
+}
+mfrac > * + * {
+    display: inline-block !important;
+    vertical-align: top;
 }
 mfrac:not([linethickness="0"]) > *:first-child {
     border-bottom: solid thin;
