@@ -159,8 +159,7 @@ ms[rquote]:after {
 }
 
 /* mathvariants */
-[mathvariant="bold"], [mathvariant="bold-italic"],
-[mathvariant="bold-sans-serif"], [mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="bold"] {
     font-weight: bold;
     font-style: normal;
 }
@@ -168,14 +167,11 @@ ms[rquote]:after {
     font-family: monospace;
     font-style: normal;
 }
-[mathvariant="sans-serif"],
-[mathvariant="bold-sans-serif"], [mathvariant="sans-serif-italic"],
-[mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="sans-serif"] {
     font-family: sans-serif;
     font-style: normal;
 }
-[mathvariant="italic"], [mathvariant="bold-italic"],
-[mathvariant="sans-serif-italic"], [mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="italic"] {
     font-style: italic;
 }
 [mathvariant="normal"] {
