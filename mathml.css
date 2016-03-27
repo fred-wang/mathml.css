@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* See https://github.com/fred-wang/mathml.css */
-   
+
 @namespace "http://www.w3.org/1998/Math/MathML";
 
 /* math */
@@ -19,8 +19,15 @@ math[display="block"] {
 /* fraction */
 mfrac {
     display: inline-block !important;
-    vertical-align: -50%;
+    vertical-align: 30%;
     border-collapse: collapse;
+    line-height: 110%;
+    font-size: 90%;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    mfrac {
+        vertical-align: -50%;
+    }
 }
 mfrac > * {
     display: block !important;
