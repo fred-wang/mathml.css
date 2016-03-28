@@ -57,6 +57,36 @@ mprescripts:after {
     content: ";";
 }
 
+/* nicer alignment of both indices */
+msubsup {
+    display: inline-flex;
+    flex-flow: column-reverse wrap;
+    height: 1.4em;
+}
+msubsup > :first-child {
+}
+msubsup > :nth-child(2),
+msubsup > :nth-child(3) {
+    text-align: left;
+    line-height: 100%;
+    font-size: 0.7em;
+}
+@supports(-webkit-writing-mode: vertical-lr) {
+    msubsup {
+        flex-direction: row;
+        -webkit-writing-mode: vertical-lr;
+        position: relative;
+        top: 0.6em;
+    }
+    msubsup > * {
+        -webkit-writing-mode: horizontal-tb;
+    }
+    msubsup > :nth-child(2),
+    msubsup > :nth-child(3) {
+        position: relative;
+        top: -0.4em;
+    }
+}
 /* under/over scripts */
 munder, mover, munderover {
     display: inline-flex !important;
