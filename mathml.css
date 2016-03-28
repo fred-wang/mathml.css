@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* See https://github.com/fred-wang/mathml.css */
-   
+
 @namespace "http://www.w3.org/1998/Math/MathML";
 
 /* math */
@@ -19,8 +19,15 @@ math[display="block"] {
 /* fraction */
 mfrac {
     display: inline-block !important;
-    vertical-align: -50%;
+    vertical-align: 30%;
     border-collapse: collapse;
+    line-height: 110%;
+    font-size: 90%;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    mfrac {
+        vertical-align: -50%;
+    }
 }
 mfrac > * {
     display: block !important;
@@ -50,6 +57,36 @@ mprescripts:after {
     content: ";";
 }
 
+/* nicer alignment of both indices */
+msubsup {
+    display: inline-flex;
+    flex-flow: column-reverse wrap;
+    height: 1.4em;
+}
+msubsup > :first-child {
+}
+msubsup > :nth-child(2),
+msubsup > :nth-child(3) {
+    text-align: left;
+    line-height: 100%;
+    font-size: 0.7em;
+}
+@supports(-webkit-writing-mode: vertical-lr) {
+    msubsup {
+        flex-direction: row;
+        -webkit-writing-mode: vertical-lr;
+        position: relative;
+        top: 0.6em;
+    }
+    msubsup > * {
+        -webkit-writing-mode: horizontal-tb;
+    }
+    msubsup > :nth-child(2),
+    msubsup > :nth-child(3) {
+        position: relative;
+        top: -0.4em;
+    }
+}
 /* under/over scripts */
 munder, mover, munderover {
     display: inline-flex !important;
@@ -159,8 +196,7 @@ ms[rquote]:after {
 }
 
 /* mathvariants */
-[mathvariant="bold"], [mathvariant="bold-italic"],
-[mathvariant="bold-sans-serif"], [mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="bold"] {
     font-weight: bold;
     font-style: normal;
 }
@@ -168,14 +204,11 @@ ms[rquote]:after {
     font-family: monospace;
     font-style: normal;
 }
-[mathvariant="sans-serif"],
-[mathvariant="bold-sans-serif"], [mathvariant="sans-serif-italic"],
-[mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="sans-serif"] {
     font-family: sans-serif;
     font-style: normal;
 }
-[mathvariant="italic"], [mathvariant="bold-italic"],
-[mathvariant="sans-serif-italic"], [mathvariant="sans-serif-bold-italic"] {
+[mathvariant|="italic"] {
     font-style: italic;
 }
 [mathvariant="normal"] {
