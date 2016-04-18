@@ -21,6 +21,7 @@ mfrac {
     display: inline-block !important;
     vertical-align: -50%;
     border-collapse: collapse;
+    text-align: center;
 }
 mfrac > * {
     display: block !important;
@@ -128,6 +129,7 @@ menclose[notation*="horizontalstrike"] {
 mtable {
     display: inline-table !important;
     vertical-align: middle;
+    text-align: center;
 }
 mtr {
     display: table-row !important;
