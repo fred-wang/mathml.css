@@ -18,7 +18,7 @@
             if (Math.abs(box.height - 23) > 1  || Math.abs(box.width - 77) > 1) {
                 // Insert the mathml.css stylesheet.
                 link = document.createElement("link");
-                link.href = (location.protocol === "https:" ? "https:" : "http:") + "//fred-wang.github.io/mathml.css/mathml.css";
+                link.href = "https://fred-wang.github.io/mathml.css/mathml.css";
                 link.rel = "stylesheet";
                 document.head.appendChild(link);
             }
