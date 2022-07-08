@@ -1,7 +1,7 @@
 mathml.css
 ==========
 
-This [mathml.css](http://fred-wang.github.io/mathml.css/mathml.css) stylesheet
+This [mathml.css](https://fred-wang.github.io/mathml.css/mathml.css) stylesheet
 is a simplified version of the
 [MathML for CSS Profile](http://www.w3.org/TR/mathml-for-css/)
 without CSS table rules that had only
@@ -19,18 +19,18 @@ it will mess up the native rendering. You must instead load the `mathml.css`
 file conditionally via Javascript using some
 [browser sniffing or feature detection](https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#Fallback_for_Browsers_without_MathML_support)
 The easiest way is to insert the
-[mspace.js](http://fred-wang.github.io/mathml.css/mspace.js)
+[mspace.js](https://fred-wang.github.io/mathml.css/mspace.js)
 script in your document header:
 
     <html>
       <head>
         ...
-        <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+        <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
         ...
       </head>
       ...
     </html>
 
-You can see a [demo page](http://fred-wang.github.io/mathml.css/) that gives an
+You can see a [demo page](https://fred-wang.github.io/mathml.css/) that gives an
 overview of the basic constructions supported and show the limitations in more
 complex cases.
