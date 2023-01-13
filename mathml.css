@@ -178,7 +178,7 @@ mspace {
 mi {
     font-style: italic;
 }
-mo {
+mo:not(:first-child):not(:last-child) {
     margin-right: .2em;
     margin-left: .2em;
 }
