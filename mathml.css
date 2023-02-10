@@ -237,7 +237,6 @@ annotation, annotation-xml {
     font-family: monospace;
     display: none !important;
 }
-math:active > semantics > *:first-child,
 math:active > semantics > *:first-child {
     display: none !important;
 }
