@@ -21,7 +21,7 @@ mfrac {
     display: inline-block !important;
     vertical-align: -50%;
     border-collapse: collapse;
-    text-align: center;
+    text-align: center !important;
 }
 mfrac > * {
     display: block !important;
@@ -242,9 +242,4 @@ math:active > semantics > *:first-child {
 }
 math:active annotation:first-of-type {
     display: inline !important;
-}
-
-/* fix */
-mfrac{ 
-   text-align: center; /* was done previously (above) */
 }
